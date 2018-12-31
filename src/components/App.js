@@ -1,4 +1,4 @@
-import axios from "axios";
+import unsplash from "../api/unsplash";
 import React from "react";
 import SearchBar from "./SearchBar";
 
@@ -8,15 +8,16 @@ class App extends React.Component {
 
   // Used ES8 Async/Await functions here
   // Refactored to an arrow function to avoid 'this' issue
+  // unplash comes from the api/unsplash configuration file
   onSearchSubmit = async term => {
-    const response = await axios.get("https://api.unsplash.com/search/photos", {
-      params: { query: term },
-      headers: {
-        Authorization:
-          "Client-ID ea16d2d3f22d5aa6438dda7d0696dc1b97e1d169f4e5d49aa667712ef46416cf"
+    const response = await unsplash.get(
+      "https://api.unsplash.com/search/photos",
+      {
+        params: { query: term }
       }
-    });
-
+    );
+    // sets the state for images using unsplash api data
+    // retrieved from axios
     this.setState({ images: response.data.results });
   };
 
