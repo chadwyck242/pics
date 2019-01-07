@@ -7,7 +7,7 @@ const ImageList = props => {
   // the ImageCard child component is created for each image
   const images = props.images.map(image => {
     // passing the image through as a prop called image
-    // the required index kep is image.id
+    // the required index key is image.id
     return <ImageCard key={image.id} image={image} />;
   });
 
