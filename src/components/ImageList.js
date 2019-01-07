@@ -11,6 +11,7 @@ const ImageList = props => {
     return <ImageCard key={image.id} image={image} />;
   });
 
+  // place the images in the image-list div using JSX object
   return <div className="image-list">{images}</div>;
 };
 
