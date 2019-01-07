@@ -3,9 +3,12 @@ import React from "react";
 class SearchBar extends React.Component {
   state = { term: '' };
 
+  // callback function that captures and passes the search term back to parent
   onFormSubmit = (event) => {
     event.preventDefault();
 
+    // this is the callback function from the parent to child
+    // allows the passing of data back to the parent component
     this.props.onSubmit(this.state.term);
   }
 
