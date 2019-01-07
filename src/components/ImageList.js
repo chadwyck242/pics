@@ -1,13 +1,14 @@
-import './ImageList.css';
-import React from 'react';
+import "./ImageList.css";
+import React from "react";
+import ImageCard from "./ImageCard";
 
 const ImageList = props => {
   // use the map method to create a list of image elements
-  // this list is assigned to images variable which is
-  // referenced in the div below
-  const images = props.images.map(({ description, id, urls }) => {
-    // notice the use of destructuring above and below...
-    return <img key={id} src={urls.regular} alt={description} />;
+  // the ImageCard child component is created for each image
+  const images = props.images.map(image => {
+    // passing the image through as a prop called image
+    // the required index kep is image.id
+    return <ImageCard key={image.id} image={image} />;
   });
 
   return <div className="image-list">{images}</div>;
